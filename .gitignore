@@ -1,0 +1,5 @@
+node_modules/
+playwright-report.json
+test-summary.txt
+artifacts/
+.DS_Store

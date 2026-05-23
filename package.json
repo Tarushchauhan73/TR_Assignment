@@ -1,0 +1,27 @@
+{
+  "name": "playwright-summary-ai",
+  "version": "0.1.0",
+  "description": "CLI tool that summarizes Playwright results and uploads insights to TestRelic.",
+  "main": "src/summarize-results.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "npx playwright test",
+    "summary": "node src/summarize-results.js playwright-report.json",
+    "ci": "npm test && npm run summary"
+  },
+  "keywords": [
+    "playwright",
+    "test",
+    "summary",
+    "testrelic",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@testrelic/playwright-analytics": "^1.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}
