@@ -1,7 +1,5 @@
 node_modules/
-test-results/
-playwright-report/
-.env
-*.log
-__pycache__/
-*.pyc
+playwright-report.json
+test-summary.txt
+artifacts/
+.DS_Store

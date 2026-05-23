@@ -1,34 +1,27 @@
 {
-  "name": "testrelic-fde-assignment",
-  "version": "1.0.0",
-  "description": "A small CLI that turns Playwright test reports into actionable TestRelic-ready summaries.",
-  "type": "module",
-  "bin": {
-    "test-signal": "./bin/test-signal.py"
-  },
+  "name": "playwright-summary-ai",
+  "version": "0.1.0",
+  "description": "CLI tool that summarizes Playwright results and uploads insights to TestRelic.",
+  "main": "src/summarize-results.js",
+  "type": "commonjs",
   "scripts": {
-    "analyze": "python3 -m test_signal analyze --report ./tests/fixtures/playwright-report.json",
-    "test": "playwright test",
-    "test:intentional-failure": "RUN_INTENTIONAL_FAILURE=1 playwright test tests/intentional-failure.spec.js",
-    "test:report": "playwright test --reporter=json,line",
-    "upload": "python3 -m test_signal analyze --report ./tests/fixtures/playwright-report.json --upload"
+    "test": "npx playwright test",
+    "summary": "node src/summarize-results.js playwright-report.json",
+    "ci": "npm test && npm run summary"
   },
   "keywords": [
-    "python",
     "playwright",
+    "test",
+    "summary",
     "testrelic",
-    "ctrf",
-    "test-intelligence"
+    "cli"
   ],
-  "author": "Tarush Chauhan",
+  "author": "",
   "license": "MIT",
   "dependencies": {
-    "@testrelic/playwright-analytics": "^2.7.0"
+    "@testrelic/playwright-analytics": "^1.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.60.0"
-  },
-  "engines": {
-    "node": ">=20"
+    "@playwright/test": "^1.44.0"
   }
 }
