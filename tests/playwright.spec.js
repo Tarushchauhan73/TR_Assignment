@@ -13,7 +13,8 @@ const login = async (page) => {
 
 test('login works', async ({ page }) => {
   await login(page);
-  await expect(page.locator('text=Login successful')).toBeVisible();
+  await expect(page.locator('#login-panel')).toBeHidden();
+  await expect(page.locator('#dashboard-panel')).toBeVisible();
 });
 
 test('invalid login fails', async ({ page }) => {
