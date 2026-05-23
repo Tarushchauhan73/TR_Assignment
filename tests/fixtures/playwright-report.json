@@ -1,0 +1,95 @@
+{
+  "config": {
+    "metadata": {
+      "projectName": "fde-assignment"
+    }
+  },
+  "suites": [
+    {
+      "title": "checkout.spec.js",
+      "specs": [
+        {
+          "title": "guest can complete checkout",
+          "file": "tests/checkout.spec.js",
+          "line": 12,
+          "tests": [
+            {
+              "status": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 612,
+                  "errors": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "payment decline shows the retry message",
+          "file": "tests/checkout.spec.js",
+          "line": 29,
+          "tests": [
+            {
+              "status": "failed",
+              "results": [
+                {
+                  "status": "failed",
+                  "duration": 1180,
+                  "errors": [
+                    {
+                      "message": "Error: expect(locator).toHaveText(expected) Expected: \"Try another card\" Received: \"Something went wrong\""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "cart total updates after quantity change",
+          "file": "tests/checkout.spec.js",
+          "line": 48,
+          "tests": [
+            {
+              "status": "passed",
+              "results": [
+                {
+                  "status": "failed",
+                  "duration": 1500,
+                  "errors": [
+                    {
+                      "message": "Timeout 5000ms exceeded while waiting for locator('.cart-total')"
+                    }
+                  ]
+                },
+                {
+                  "status": "passed",
+                  "duration": 740,
+                  "errors": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "admin export respects selected date range",
+          "file": "tests/admin.spec.js",
+          "line": 7,
+          "tests": [
+            {
+              "status": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 2430,
+                  "errors": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

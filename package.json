@@ -1,0 +1,34 @@
+{
+  "name": "testrelic-fde-assignment",
+  "version": "1.0.0",
+  "description": "A small CLI that turns Playwright test reports into actionable TestRelic-ready summaries.",
+  "type": "module",
+  "bin": {
+    "test-signal": "./bin/test-signal.py"
+  },
+  "scripts": {
+    "analyze": "python3 -m test_signal analyze --report ./tests/fixtures/playwright-report.json",
+    "test": "playwright test",
+    "test:intentional-failure": "RUN_INTENTIONAL_FAILURE=1 playwright test tests/intentional-failure.spec.js",
+    "test:report": "playwright test --reporter=json,line",
+    "upload": "python3 -m test_signal analyze --report ./tests/fixtures/playwright-report.json --upload"
+  },
+  "keywords": [
+    "python",
+    "playwright",
+    "testrelic",
+    "ctrf",
+    "test-intelligence"
+  ],
+  "author": "Tarush Chauhan",
+  "license": "MIT",
+  "dependencies": {
+    "@testrelic/playwright-analytics": "^2.7.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
