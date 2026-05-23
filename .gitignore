@@ -3,3 +3,5 @@ playwright-report.json
 test-summary.txt
 artifacts/
 .DS_Store
+__pycache__/
+*.pyc

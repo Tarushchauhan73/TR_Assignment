@@ -4,12 +4,18 @@
   "description": "CLI tool that summarizes Playwright results and uploads insights to TestRelic.",
   "main": "src/summarize-results.js",
   "type": "commonjs",
+  "bin": {
+    "test-signal": "./bin/test-signal.py"
+  },
   "scripts": {
     "test": "npx playwright test",
     "summary": "node src/summarize-results.js playwright-report.json",
-    "ci": "npm test && npm run summary"
+    "summary:python": "python3 -m test_signal analyze --report playwright-report.json --out test-summary-python.txt",
+    "analyze": "python3 -m test_signal analyze --report tests/fixtures/playwright-report.json",
+    "ci": "npm test && npm run summary && npm run summary:python"
   },
   "keywords": [
+    "python",
     "playwright",
     "test",
     "summary",
