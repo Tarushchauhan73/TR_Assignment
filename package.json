@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "npx playwright test",
+    "test:intentional-failure": "RUN_INTENTIONAL_FAILURE=1 npx playwright test tests/playwright.spec.js -g \"intentional failure\"",
     "summary": "node src/summarize-results.js playwright-report.json",
     "summary:python": "python3 -m test_signal analyze --report playwright-report.json --out test-summary-python.txt",
     "analyze": "python3 -m test_signal analyze --report tests/fixtures/playwright-report.json",

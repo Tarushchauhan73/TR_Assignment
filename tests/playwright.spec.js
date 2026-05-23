@@ -42,6 +42,8 @@ test('checkout flow works', async ({ page }) => {
 });
 
 test('intentional failure reproduces a report issue', async ({ page }) => {
+  test.skip(!process.env.RUN_INTENTIONAL_FAILURE, 'Run with RUN_INTENTIONAL_FAILURE=1 when capturing TestRelic failure evidence.');
+
   await page.goto(appUrl);
   await expect(page.locator('text=WrongText')).toBeVisible();
 });

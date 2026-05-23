@@ -25,6 +25,12 @@ npm run summary
 npm run summary:python
 ```
 
+The required intentional failure is kept out of the default CI run so the workflow can pass. Run it explicitly when capturing TestRelic failure evidence:
+
+```bash
+npm run test:intentional-failure
+```
+
 The `playwright-report.json` file is generated automatically by Playwright via the project reporter configuration.
 
 To upload results to TestRelic when running locally, export your API key and project name first:
