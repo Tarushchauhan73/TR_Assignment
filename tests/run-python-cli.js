@@ -1,4 +1,4 @@
-import { spawnSync } from 'node:child_process';
+const { spawnSync } = require('node:child_process');
 
 const candidates = [process.env.PYTHON || 'python3', 'python'];
 let last;
@@ -14,10 +14,10 @@ for (const candidate of candidates) {
     continue;
   }
 
-  process.stdout.write(result.stdout ?? '');
-  process.stderr.write(result.stderr ?? '');
-  process.exit(result.status ?? 1);
+  process.stdout.write(result.stdout || '');
+  process.stderr.write(result.stderr || '');
+  process.exit(result.status || 0);
 }
 
-process.stderr.write(last?.error?.message ?? 'No Python interpreter found');
+process.stderr.write((last && last.error && last.error.message) || 'No Python interpreter found');
 process.exit(127);
