@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TESTRELIC_API_KEY: ${{ secrets.TESTRELIC_API_KEY }}
+      TESTRELIC_PROJECT_NAME: fde-assignment
+
     steps:
-      
       - uses: actions/checkout@v4.2.2
 
       - uses: actions/setup-node@v5

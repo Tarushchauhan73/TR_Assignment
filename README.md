@@ -1,23 +1,26 @@
 # Playwright Summary AI
 
-A Python-first CLI tool and example Playwright suite that turns raw Playwright JSON results into readable summaries, detects failures/flakes/slow tests, and uploads artifacts to TestRelic.
+A CLI tool that turns Playwright test results into actionable plain-English
+summaries and uploads them to TestRelic.
 
-## What it does
-- Runs an example Playwright test suite
-- Generates `playwright-report.json`
-- Produces plain-English summaries with both the original Node helper and the Python CLI
-- Attempts a TestRelic upload when `TESTRELIC_API_KEY` is configured
-
-## Quickstart
-
-Install dependencies:
+## Quickstart (under 15 minutes)
 
 ```bash
+git clone https://github.com/Tarushchauhan73/TR_Assignment
+cd TR_Assignment
 npm install
 npx playwright install --with-deps
+pip install -r requirements.txt
 ```
 
-Run the demo tests and summary:
+Set your TestRelic API key:
+
+```bash
+export TESTRELIC_API_KEY=your_api_key
+export TESTRELIC_PROJECT_NAME=fde-assignment
+```
+
+Run tests and generate summaries:
 
 ```bash
 npm test
@@ -25,49 +28,30 @@ npm run summary
 npm run summary:python
 ```
 
-The required intentional failure is kept out of the default CI run so the workflow can pass. Run it explicitly when capturing TestRelic failure evidence:
+## What it does
+
+- Runs a Playwright test suite against a local demo app
+- Generates `playwright-report.json` via Playwright's JSON reporter
+- Produces `test-summary.txt` — a plain-English Node.js summary
+- Produces `test-summary-python.txt` — a Python CLI summary with flake detection
+- Uploads results to TestRelic in real time when `TESTRELIC_API_KEY` is set
+
+## Intentional failure
+
+The suite includes one intentional failure to demonstrate TestRelic's failure
+analysis. Run it explicitly:
 
 ```bash
 npm run test:intentional-failure
 ```
 
-The `playwright-report.json` file is generated automatically by Playwright via the project reporter configuration.
-
-To upload results to TestRelic when running locally, export your API key and project name first:
-
-```bash
-export TESTRELIC_API_KEY=your_api_key
-export TESTRELIC_PROJECT_NAME=fde-assignment
-npm test
-```
-
-After running tests the TestRelic reporter will upload results to your TestRelic project (if the key is valid). See `/docs/testrelic.md` for MCP instructions and evidence capture.
-
-Set `TESTRELIC_API_KEY` to upload results to TestRelic in CI:
-
-```bash
-export TESTRELIC_API_KEY=your_api_key
-npm run summary
-```
-
-Run the Python CLI directly when you want the fastest local feedback:
-
-```bash
-python3 -m test_signal analyze --report playwright-report.json --out test-summary-python.txt
-```
-
-## Files
-- `tests/playwright.spec.js` — example Playwright tests including one intentional failure.
-- `tests/fixtures/demo-app.html` — local demo app used by the tests.
-- `src/summarize-results.js` — CLI summarizer and TestRelic uploader.
-- `test_signal/` — Python CLI that parses Playwright/CTRF, explains failures, detects flaky retry-passes, and can dry-run or post CTRF payloads.
-- `bin/test-signal.py` — Python executable entrypoint.
-- `docs/problem.md` — problem analysis and success metrics.
-- `docs/scale.md` — scale thinking and onboarding notes.
-- `.github/workflows/ci.yml` — CI workflow for install, test, summary, and artifact upload.
-
 ## CI
-The GitHub Actions workflow installs Node, installs Playwright browsers, runs tests, summarizes results, and uploads artifacts.
 
-## Notes
-If `@testrelic/playwright-analytics` is not available or `TESTRELIC_API_KEY` is not set, the tool still writes a summary artifact and prints the reason.
+GitHub Actions runs on every push to `main`. Set `TESTRELIC_API_KEY` as a
+repository secret to enable dashboard uploads from CI.
+
+## Deliverables
+
+- [Problem Decomposition](docs/problem.md)
+- [Scale Brief](docs/scale.md)
+- [CI Run](https://github.com/Tarushchauhan73/TR_Assignment/actions)

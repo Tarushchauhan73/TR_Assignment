@@ -4,10 +4,9 @@ export default defineConfig({
   testDir: './tests',
   reporter: [
     ['list'],
-    ['json', { outputFile: 'playwright-report.json' }],   // ← ADD THIS
+    ['json', { outputFile: 'playwright-report.json' }],
     ['html'],
-    // Only load TestRelic reporter when API key is present
-    ...(process.env.TESTRELIC_API_KEY                     // ← WRAP THIS
+    ...(process.env.TESTRELIC_API_KEY
       ? [
           [
             '@testrelic/playwright-analytics',
