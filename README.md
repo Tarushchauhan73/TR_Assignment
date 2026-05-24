@@ -85,7 +85,7 @@ analysis. Run it explicitly:
 ```bash
 npm run test:intentional-failure
 ```
-## screenshots -DOCS/screenshots and in Docs/folder
+
 ---
 
 # Screenshots
@@ -102,7 +102,7 @@ npm run test:intentional-failure
 
 ---
 
-## MCP Creation
+### MCP Query + AI Insight
 
 ![MCP Creation](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/mcp_creation.png)
 
