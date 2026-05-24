@@ -13,6 +13,7 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       TESTRELIC_API_KEY: ${{ secrets.TESTRELIC_API_KEY }}
       TESTRELIC_PROJECT_NAME: fde-assignment
+      TESTRELIC_API_URL: https://platform.testrelic.ai/api
 
     steps:
       - uses: actions/checkout@v4.2.2
@@ -40,8 +41,8 @@ jobs:
         run: npm run summary
         if: always()
 
-      - name: Generate Python summary
-        run: npm run summary:python
+      - name: Generate Python summary and upload
+        run: python3 -m test_signal analyze --report test-results/analytics-timeline.json --upload
         if: always()
 
       - uses: actions/upload-artifact@v4.6.2

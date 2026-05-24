@@ -7,8 +7,10 @@ export default defineConfig({
     ['json', { outputFile: 'playwright-report.json' }],
     ['html'],
     ['@testrelic/playwright-analytics', {
-      apiKey: process.env.TESTRELIC_API_KEY,
-      projectName: process.env.TESTRELIC_PROJECT_NAME || 'fde-assignment',
+      outputPath: './test-results/analytics-timeline.json',
+      includeStackTrace: true,
+      includeCodeSnippets: true,
+      includeNetworkStats: true,
     }],
   ],
 });
