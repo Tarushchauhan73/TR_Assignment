@@ -17,14 +17,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.2.2
+
       - uses: actions/setup-node@v5
         with:
           node-version: '20'
+
       - uses: actions/setup-python@v5.6.0
         with:
           python-version: '3.11'
+
       - run: npm install
+
       - run: pip install -r requirements.txt
+
       - run: npx playwright install --with-deps
 
       - name: Run Playwright tests
@@ -36,9 +41,18 @@ jobs:
         run: npm run summary
         if: always()
 
-      - name: Generate Python summary and upload
-        run: python3 -m test_signal analyze --report test-results/analytics-timeline.json --out test-summary-python.txt --upload
+      - name: Generate Python summary
+        run: python3 -m test_signal analyze --report test-results/analytics-timeline.json --out test-summary-python.txt --dry-run
         if: always()
+        continue-on-error: true
+
+      - name: Upload to TestRelic
+        run: |
+          if [ -n "$TESTRELIC_API_KEY" ]; then
+            python3 -m test_signal analyze --report test-results/analytics-timeline.json --upload
+          fi
+        if: always()
+        continue-on-error: true
 
       - uses: actions/upload-artifact@v4.6.2
         if: always()
