@@ -6,21 +6,9 @@ export default defineConfig({
     ['list'],
     ['json', { outputFile: 'playwright-report.json' }],
     ['html'],
-    ...(process.env.TESTRELIC_API_KEY
-      ? [
-          [
-            '@testrelic/playwright-analytics',
-            {
-              cloud: {
-                apiKey: process.env.TESTRELIC_API_KEY,
-                upload: 'realtime',
-                uploadArtifacts: true,
-                artifactMaxSizeMb: 10,
-                timeout: 30000,
-              },
-            },
-          ] as const,
-        ]
-      : []),
+    ['@testrelic/playwright-analytics', {
+      apiKey: process.env.TESTRELIC_API_KEY,
+      projectName: process.env.TESTRELIC_PROJECT_NAME || 'fde-assignment',
+    }],
   ],
 });
