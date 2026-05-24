@@ -36,6 +36,47 @@ npm run summary:python
 - Produces `test-summary-python.txt` — a Python CLI summary with flake detection
 - Uploads results to TestRelic in real time when `TESTRELIC_API_KEY` is set
 
+  # Project Structure
+
+```bash
+TR_Assignment/
+│
+├── .github/
+│   └── workflows/              # GitHub Actions workflows
+│
+├── .testrelic/                 # TestRelic configuration
+│
+├── bin/                        # Helper scripts
+│
+├── docs/
+│   ├── screenshots/            # Dashboard and MCP screenshots
+│   ├── dashboard-evidence.md
+│   ├── problem.md
+│   ├── scale.md
+│   └── testrelic.md
+│
+├── playwright-report/          # Playwright HTML reports
+│
+├── src/                        # Source code
+│
+├── test-results/               # Generated test results
+│
+├── test_signal/                # Signal configurations
+│
+├── tests/                      # Playwright test cases
+│
+├── types/node/                 # Node type definitions
+│
+├── .env.example                # Environment variables example
+├── .gitignore
+├── MCP
+├── README.md
+└── package-lock.json
+```
+
+---
+
+
 ## Intentional failure
 
 The suite includes one intentional failure to demonstrate TestRelic's failure
@@ -45,6 +86,34 @@ analysis. Run it explicitly:
 npm run test:intentional-failure
 ```
 ## screenshots -DOCS/screenshots and in Docs/folder
+---
+
+# Screenshots
+
+## MCP Token
+
+![MCP Token](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/MCP_token.png)
+
+---
+
+## TestRelic Dashboard
+
+![TestRelic Dashboard](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/docs%3Atestrelic-dashboard.png)
+
+---
+
+## MCP Creation
+
+![MCP Creation](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/mcp_creation.png)
+
+---
+
+## Test Results Dashboard
+
+![Test Results](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/tr2.png)
+
+---
+
 ## CI
 
 GitHub Actions runs on every push to `main`. Set `TESTRELIC_API_KEY` as a
