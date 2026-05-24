@@ -1,6 +1,9 @@
-import { defineConfig } from '@testrelic/playwright-analytics';
+import { defineConfig } from '@playwright/test';
 
-export default defineConfig(
-  { testDir: './tests' },
-  { cloud: { apiKey: 'YOUR_API_KEY' } },
-);
+export default defineConfig({
+  testDir: './tests',
+
+  use: {
+    trace: 'on-first-retry',
+  },
+});
