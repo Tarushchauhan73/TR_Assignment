@@ -1,16 +1,37 @@
+name: Playwright CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v5
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 24
-
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - run: npm install
-
       - run: npx playwright install --with-deps
-export TESTRELIC_API_KEY=tr_live_d0428ea55f79a1ada426ff755957d9c48918f1b6570fcba510775f079ef2f49e
-npx playwright test
+      - run: npm run ci
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: summary
+          path: test-summary.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: python-summary
+          path: test-summary-python.txt
