@@ -41,19 +41,6 @@ jobs:
         run: npm run summary
         if: always()
 
-      - name: Generate Python summary
-        run: python3 -m test_signal analyze --report test-results/analytics-timeline.json --out test-summary-python.txt --dry-run
-        if: always()
-        continue-on-error: true
-
-      - name: Upload to TestRelic
-        run: |
-          if [ -n "$TESTRELIC_API_KEY" ]; then
-            python3 -m test_signal analyze --report test-results/analytics-timeline.json --upload
-          fi
-        if: always()
-        continue-on-error: true
-
       - uses: actions/upload-artifact@v4.6.2
         if: always()
         with:
@@ -65,12 +52,6 @@ jobs:
         with:
           name: summary
           path: test-summary.txt
-
-      - uses: actions/upload-artifact@v4.6.2
-        if: always()
-        with:
-          name: python-summary
-          path: test-summary-python.txt
 
       - name: Propagate test failure
         if: steps.playwright.outcome == 'failure'
