@@ -44,7 +44,7 @@ analysis. Run it explicitly:
 ```bash
 npm run test:intentional-failure
 ```
-
+## screenshots -DOCS/screenshots and in Docs/folder
 ## CI
 
 GitHub Actions runs on every push to `main`. Set `TESTRELIC_API_KEY` as a
