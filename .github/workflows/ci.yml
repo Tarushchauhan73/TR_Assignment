@@ -32,6 +32,12 @@ jobs:
         run: npx playwright test
         continue-on-error: true
 
+      - name: Check if timeline file exists
+        run: |
+          echo "Checking test-results directory..."
+          ls -la test-results/ || echo "Directory does not exist"
+          [ -f test-results/analytics-timeline.json ] && echo "✓ File found" || echo "✗ File NOT found"
+
       - name: Generate Node summary
         run: npm run summary
         if: always()
