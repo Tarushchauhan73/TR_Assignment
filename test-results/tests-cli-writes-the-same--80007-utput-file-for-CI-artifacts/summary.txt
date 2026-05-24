@@ -1,0 +1,17 @@
+Test Signal Summary
+===================
+Ran 4 tests: 3 passed, 1 failed, 0 skipped.
+Recommendation: 1 test failed. Start with the first failure because it is blocking release confidence.
+
+What needs attention now:
+- checkout.spec.js > payment decline shows the retry message
+  Plain English: The page showed different text than the test expected. Check whether the product copy changed or the UI is rendering the wrong state.
+  Where: tests/checkout.spec.js:29
+
+Possible flaky noise:
+- checkout.spec.js > cart total updates after quantity change (2 attempts)
+
+Slowest tests to watch:
+- checkout.spec.js > admin export respects selected date range: 2.4 s
+- checkout.spec.js > cart total updates after quantity change: 2.2 s
+- checkout.spec.js > payment decline shows the retry message: 1.2 s

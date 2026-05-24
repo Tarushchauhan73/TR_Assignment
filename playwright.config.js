@@ -1,25 +1,12 @@
-import { defineConfig } from '@playwright/test';
+import defineConfig from '@testrelic/playwright-analytics';
 
-const reporters = [
-  ['line'],
-  ['json', { outputFile: 'test-results/playwright-report.json' }]
-];
-
-if (process.env.TESTRELIC_API_KEY) {
-  reporters.push([
-    '@testrelic/playwright-analytics',
-    {
-      apiKey: process.env.TESTRELIC_API_KEY,
-      projectName: 'fde-assignment-test-signal'
-    }
-  ]);
-}
-
-export default defineConfig({
+export default new defineConfig({
   testDir: './tests',
-  reporter: reporters,
   timeout: 10_000,
   use: {
-    trace: 'retain-on-failure'
-  }
+    trace: 'retain-on-failure',
+  },
+  cloud: {
+    apiKey: 'tr_live_d0428ea55f79a1ada426ff755957d9c48918f1b6570fcba510775f079ef2f49e',
+  },
 });
