@@ -5,3 +5,6 @@ artifacts/
 .DS_Store
 __pycache__/
 *.pyc
+
+# TestRelic test artifacts
+test-results/artifacts/

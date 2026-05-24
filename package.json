@@ -27,7 +27,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@testrelic/playwright-analytics": "^1.4.0"
+    "@testrelic/playwright-analytics": "^2.7.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",

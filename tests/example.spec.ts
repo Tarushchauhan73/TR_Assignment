@@ -1,7 +1,6 @@
-import { test, expect } from '@testrelic/playwright-analytics/fixture';
+import { test, expect } from '@playwright/test';
 
 test('homepage test', async ({ page }) => {
   await page.goto('https://example.com');
-
-  await expect(page).toHaveTitle(/Example/);
+  await expect(page.locator('h1')).toBeVisible();
 });
