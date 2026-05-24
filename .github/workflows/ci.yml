@@ -17,14 +17,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.2.2
+
       - uses: actions/setup-node@v5
         with:
           node-version: '20'
+
       - uses: actions/setup-python@v5.6.0
         with:
           python-version: '3.11'
+
       - run: npm install
+
       - run: pip install -r requirements.txt
+
       - run: npx playwright install --with-deps
 
       - name: Run Playwright tests
@@ -43,7 +48,7 @@ jobs:
         if: always()
 
       - name: Generate Python summary and upload
-        run: python3 -m test_signal analyze --report test-results/analytics-timeline.json --upload
+        run: python3 -m test_signal analyze --report test-results/analytics-timeline.json --out test-summary-python.txt --upload
         if: always()
 
       - uses: actions/upload-artifact@v4.6.2
