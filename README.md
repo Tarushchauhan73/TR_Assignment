@@ -119,6 +119,21 @@ npm run test:intentional-failure
 GitHub Actions runs on every push to `main`. Set `TESTRELIC_API_KEY` as a
 repository secret to enable dashboard uploads from CI.
 
+---
+
+# Repository
+
+https://github.com/Tarushchauhan73/TR_Assignment
+
+---
+
+
+# Author
+
+Tarush Chauhan
+
+GitHub: https://github.com/Tarushchauhan73
+
 ## Deliverables
 
 - [Problem Decomposition](docs/problem.md)
