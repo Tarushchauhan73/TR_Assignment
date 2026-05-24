@@ -6,12 +6,16 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['html'],
-    ['json', { outputFile: 'playwright-report.json' }],
+
     [
       '@testrelic/playwright-analytics',
       {
         cloud: {
           apiKey: process.env.TESTRELIC_API_KEY,
+          upload: 'realtime',
+          uploadArtifacts: true,
+          artifactMaxSizeMb: 10,
+          timeout: 30000,
         },
       },
     ],
