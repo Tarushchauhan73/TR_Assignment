@@ -74,6 +74,10 @@ TR_Assignment/
 └── package-lock.json
 ```
 
+## Loom Video
+
+[Watch the demo on Loom](https://www.loom.com/share/92b204a23402443b9462d503b01845b7)
+
 ---
   # Project Structure for MCP
   
