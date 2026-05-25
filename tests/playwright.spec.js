@@ -1,5 +1,5 @@
+import { test, expect } from '@testrelic/playwright-analytics/fixture';
 const path = require('path');
-const { test, expect } = require('@playwright/test');
 const appPath = path.join(__dirname, 'fixtures', 'demo-app.html');
 const appUrl = `file://${appPath}`;
 

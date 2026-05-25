@@ -1,4 +1,4 @@
-import { test, expect } from '@testrelic/playwright-analytics/fixture';
+import { test, expect } from '@playwright/test';
 import { execFile } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import { promisify } from 'node:util';

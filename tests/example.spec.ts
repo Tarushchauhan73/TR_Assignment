@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@testrelic/playwright-analytics/fixture';
 
 test('homepage test', async ({ page }) => {
-  await page.goto('https://example.com');
-  await expect(page.locator('h1')).toBeVisible();
+  await page.goto('http://localhost:3000');
+  await expect(page.locator('body')).toBeVisible();
 });
