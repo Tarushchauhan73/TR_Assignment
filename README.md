@@ -113,7 +113,7 @@ TR_Assignment/
 
 ### MCP Query + AI Insight
 
-![MCP Creation](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/mcp_creation.png)
+<img width="1440" height="900" alt="MCP_token" src="https://github.com/user-attachments/assets/9ce627e9-e25b-4571-8b21-e60c5955d1c6" />
 
 ---
 
