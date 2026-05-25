@@ -126,6 +126,10 @@ analysis. Run it explicitly:
 
 ```bash
 npm run test:intentional-failure
+
+https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/mcp_creation.png
+<img width="1440" height="900" alt="mcp_creation" src="https://github.com/user-attachments/assets/80a90c41-c290-4b8d-874b-36bb84ed933b" />
+
 ```
 2. Plain English Failure Analysis
 ##Explain the latest failed Playwright test in plain English.
@@ -140,6 +144,9 @@ Users may experience failed logins or slow authentication responses.
 
 Suggested fix:
 Check authentication API latency and add retry handling for dashboard rendering.
+
+<img width="1440" height="900" alt="MCP_token" src="https://github.com/user-attachments/assets/4df33509-df50-4de2-863c-4f5c1a6eb934" />
+
 
 3. High Value Tests
 Prompt
