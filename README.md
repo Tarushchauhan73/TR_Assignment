@@ -75,6 +75,48 @@ TR_Assignment/
 ```
 
 ---
+  # Project Structure for MCP
+  
+  TR_Assignment/
+│
+├── docs/
+│   ├── mcp-insight.png
+│   ├── testrelic-ai-analysis.png
+│   ├── problem.md
+│   └── scale.md
+│
+├── tests/
+│   └── example.spec.ts
+│
+├── .vscode/
+│   └── mcp.json
+│
+├── playwright.config.ts
+├── package.json
+└── README.md
+
+---
+# MCP Screenshot Examples
+
+## 1. Flaky Test Detection
+
+### Prompt
+
+```text
+## Which tests are flaky based on the last 3 runs?
+
+The test "checkout-payment.spec.ts" appears flaky.
+
+Reason:
+- Failed 2 out of last 5 runs
+- Failure signatures are inconsistent
+- Average execution time variance is high
+
+Most common failure:
+Timeout waiting for payment confirmation modal.
+
+Recommendation:
+Add explicit wait for payment API completion before  asserting UI state.
 
 
 ## Intentional failure
@@ -85,8 +127,60 @@ analysis. Run it explicitly:
 ```bash
 npm run test:intentional-failure
 ```
+2. Plain English Failure Analysis
+##Explain the latest failed Playwright test in plain English.
+
+The login flow test failed because the dashboard page never loaded after the user clicked Sign In.
+
+Technical cause:
+The selector ".dashboard-container" was not found within 30 seconds.
+
+Likely customer impact:
+Users may experience failed logins or slow authentication responses.
+
+Suggested fix:
+Check authentication API latency and add retry handling for dashboard rendering.
+
+3. High Value Tests
+Prompt
+Which tests are catching the most real issues?
+
+Top high-signal tests:
+
+1. auth-login.spec.ts
+- Detected 3 production regressions
+- Stable execution history
+
+2. checkout-flow.spec.ts
+- Frequently detects API synchronization bugs
+
+3. search-filter.spec.ts
+- High user-impact coverage
+- Low flakiness score
+
+Recommendation:
+Prioritize maintaining these tests because they provide the highest debugging value.
 
 ---
+
+4. Intentional Failure Analysis
+Prompt
+Analyze the intentionally failing test and explain root cause.
+Example MCP Response
+The test "invalid-password-login.spec.ts" failed intentionally.
+
+Observed behavior:
+Expected success message was asserted even though invalid credentials were provided.
+
+Failure type:
+Assertion mismatch
+
+Why this is useful:
+This test validates that the reporting pipeline correctly captures failures and provides actionable debugging information.
+
+Suggested improvement:
+Add failure classification tags for intentional regression simulations.
+
 
 # Screenshots
 
