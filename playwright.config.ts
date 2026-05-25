@@ -15,9 +15,9 @@ export default defineConfig({
   ],
   // ← ADD THIS SECTION
   use: {
-    video: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    trace: 'retain-on-failure',
+    video: 'on',
+    screenshot: 'on',
+    trace: 'on',
   },
   webServer: {
     command: 'npx http-server ./tests/fixtures -p 3000',
