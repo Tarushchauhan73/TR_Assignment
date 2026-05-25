@@ -96,6 +96,35 @@ TR_Assignment/
 └── README.md
 
 ---
+
+
+# Screenshots
+
+## MCP Token
+
+![MCP Token](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/MCP_token.png)
+
+---
+
+## TestRelic Dashboard
+
+![TestRelic Dashboard](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/docs%3Atestrelic-dashboard.png)
+
+---
+
+### MCP Query + AI Insight
+
+![MCP Creation](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/mcp_creation.png)
+
+---
+
+## Test Results Dashboard
+
+![Test Results](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/tr2.png)
+
+---
+
+
 # MCP Screenshot Examples
 
 ## 1. Flaky Test Detection
@@ -145,8 +174,9 @@ Users may experience failed logins or slow authentication responses.
 Suggested fix:
 Check authentication API latency and add retry handling for dashboard rendering.
 
-<img width="1440" height="900" alt="MCP_token" src="https://github.com/user-attachments/assets/4df33509-df50-4de2-863c-4f5c1a6eb934" />
+<img width="1440" height="900" alt="mcp_creation" src="https://github.com/user-attachments/assets/bf604ad1-2c06-4cfe-aad6-fc98c1c7c58b" />
 
+---
 
 3. High Value Tests
 Prompt
@@ -168,6 +198,9 @@ Top high-signal tests:
 Recommendation:
 Prioritize maintaining these tests because they provide the highest debugging value.
 
+<img width="1440" height="900" alt="Screenshot 2026-05-24 at 12 28 12 PM" src="https://github.com/user-attachments/assets/858a4e2e-1df5-403b-9516-49bf9c6186e1" />
+
+
 ---
 
 4. Intentional Failure Analysis
@@ -188,33 +221,7 @@ This test validates that the reporting pipeline correctly captures failures and 
 Suggested improvement:
 Add failure classification tags for intentional regression simulations.
 
-
-# Screenshots
-
-## MCP Token
-
-![MCP Token](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/MCP_token.png)
-
 ---
-
-## TestRelic Dashboard
-
-![TestRelic Dashboard](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/docs%3Atestrelic-dashboard.png)
-
----
-
-### MCP Query + AI Insight
-
-![MCP Creation](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/mcp_creation.png)
-
----
-
-## Test Results Dashboard
-
-![Test Results](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/tr2.png)
-
----
-
 ## CI
 
 GitHub Actions runs on every push to `main`. Set `TESTRELIC_API_KEY` as a
