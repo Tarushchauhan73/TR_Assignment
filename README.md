@@ -100,9 +100,8 @@ TR_Assignment/
 
 # Screenshots
 
-## MCP Token
-
-![MCP Token](https://github.com/Tarushchauhan73/TR_Assignment/blob/main/docs/screenshots/MCP_token.png)
+## TestRelic AI ANALYTICS REPORT
+<img width="1440" height="900" alt="tr2" src="https://github.com/user-attachments/assets/9c54cc6b-7ef4-44ef-8473-5702ae133dc4" />
 
 ---
 
