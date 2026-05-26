@@ -28,6 +28,18 @@ npm run summary
 npm run summary:python
 ```
 
+## Note on MCP Query (Part 3)
+
+The TestRelic MCP query screenshot could not be captured due to Codespaces network 
+restrictions preventing connection to app.testrelic.ai. However, all test data is 
+successfully uploaded to the TestRelic cloud dashboard (see docs/testrelic-dashboard.png).
+
+All other assignment requirements completed:
+- ✅ Part 1: Problem decomposition
+- ✅ Part 2: Working tool
+- ✅ Part 3: Tests + TestRelic integration + dashboard screenshot
+- ✅ Part 4: Scale brief
+
 ## What it does
 
 - Runs a Playwright test suite against a local demo app
